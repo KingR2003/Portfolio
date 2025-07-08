@@ -8,8 +8,11 @@ const Hero = () => {
     >
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-700/40 via-indigo-500/20 to-blue-600/40 blur-2xl opacity-20 animate-pulse z-0" />
-      <div className="absolute w-[500px] h-[500px] bg-purple-600 rounded-full opacity-30 blur-3xl animate-ping top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0" />
-      <svg className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-10" viewBox="0 0 1440 320">
+      <div className="absolute w-[300px] sm:w-[400px] md:w-[500px] h-[300px] sm:h-[400px] md:h-[500px] bg-purple-600 rounded-full opacity-30 blur-3xl animate-ping top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0" />
+      <svg
+        className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-10"
+        viewBox="0 0 1440 320"
+      >
         <path
           fill="#8b5cf6"
           fillOpacity="1"
@@ -18,11 +21,11 @@ const Hero = () => {
       </svg>
 
       {/* Main Content */}
-      <h1 className="z-10 text-5xl md:text-6xl font-bold text-white mb-4">
+      <h1 className="z-10 text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
         Harshananda Akkasali
       </h1>
-      <p className="z-10 text-lg md:text-xl text-gray-300 mb-6">
-        Software Developer | Building with React & AI & Cloud
+      <p className="z-10 text-base sm:text-lg md:text-xl text-gray-300 mb-6">
+        Software Developer | Building with React, AI & Cloud
       </p>
       <a
         href="/resume.pdf"
