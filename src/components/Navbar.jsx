@@ -1,36 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 
 const navItems = ['Home', 'Skills', 'Projects', 'Experience', 'Highlights', 'Contact'];
 
-const Navbar = () => {
-  const [active, setActive] = useState('Home');
+const Navbar = ({ active }) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  // Handle scroll to highlight current section
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 100;
-      for (let i = navItems.length - 1; i >= 0; i--) {
-        const section = document.getElementById(navItems[i].toLowerCase());
-        if (section && section.offsetTop <= scrollPosition) {
-          setActive(navItems[i]);
-          break;
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const handleClick = (item) => {
     const section = document.getElementById(item.toLowerCase());
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
     }
-    setActive(item);
-    setIsOpen(false); // close mobile menu
+    setIsOpen(false);
   };
 
   return (
@@ -55,13 +36,13 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Mobile menu button */}
+        {/* Mobile menu toggle */}
         <div className="md:hidden text-white text-2xl" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <FiX /> : <FiMenu />}
         </div>
       </div>
 
-      {/* Mobile Nav Menu */}
+      {/* Mobile Nav */}
       {isOpen && (
         <ul className="md:hidden flex flex-col items-center gap-4 py-4 bg-gray-900 text-white">
           {navItems.map((item) => (
