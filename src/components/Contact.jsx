@@ -8,12 +8,7 @@ const contactDetails = [
     value: 'harsha51913@gmail.com',
     href: 'mailto:harsha51913@gmail.com'
   },
-  {
-    icon: <FaPhoneAlt />,
-    label: 'Phone',
-    value: '+91 7899085906',
-    href: 'tel:+91 7899085906'
-  },
+
   {
     icon: <FaLinkedin />,
     label: 'LinkedIn',
