@@ -39,31 +39,68 @@ const App = () => {
   return (
     <>
       <Navbar active={activeSection} />
+      
       <div ref={homeRef}>
         <Hero />
       </div>
+
       <div ref={skillsRef}>
         <Skills />
       </div>
+
       <div ref={projectsRef}>
         <Projects />
       </div>
+
       <div ref={experienceRef} id="experience">
-        {/* Replace with your Experience component */}
-        <section className="min-h-screen bg-gray-900 text-white flex items-center justify-center">
-          <h2 className="text-4xl">Experience</h2>
+        <section className="bg-gray-900 py-20 px-4 text-white text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Experience</h2>
+          <p className="text-gray-300 max-w-2xl mx-auto">
+            Currently building exciting full-stack products using React, Node, and cloud services. 
+            Previously worked on real-time location apps and blockchain projects.
+          </p>
         </section>
       </div>
+
       <div ref={highlightsRef} id="highlights">
-        {/* Replace with your Highlights component */}
-        <section className="min-h-screen bg-gray-950 text-white flex items-center justify-center">
-          <h2 className="text-4xl">Highlights</h2>
+        <section className="bg-gray-950 py-20 px-4 text-white text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Highlights</h2>
+          <ul className="text-gray-300 list-disc list-inside max-w-2xl mx-auto space-y-2 text-left">
+            <li>🚀 Built & deployed 3 production apps</li>
+            <li>🌐 15K+ combined users across platforms</li>
+            <li>💡 Open-sourced multiple tools on GitHub</li>
+          </ul>
         </section>
       </div>
+
       <div ref={contactRef} id="contact">
-        {/* Replace with your Contact component */}
-        <section className="min-h-screen bg-gray-900 text-white flex items-center justify-center">
-          <h2 className="text-4xl">Contact</h2>
+        <section className="bg-gray-900 py-20 px-4 text-white text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Contact</h2>
+          <p className="text-gray-300 max-w-xl mx-auto mb-4">
+            Let's connect! I'm open to freelance, collaboration, or just a quick tech chat.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="mailto:harsha@example.com"
+              className="bg-purple-600 px-6 py-2 rounded-full text-white hover:bg-purple-700 transition"
+            >
+              Email Me
+            </a>
+            <a
+              href="https://linkedin.com/in/yourprofile"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-purple-600 px-6 py-2 rounded-full text-white hover:bg-purple-700 transition"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="tel:+919000000000"
+              className="bg-purple-600 px-6 py-2 rounded-full text-white hover:bg-purple-700 transition"
+            >
+              Call
+            </a>
+          </div>
         </section>
       </div>
     </>
