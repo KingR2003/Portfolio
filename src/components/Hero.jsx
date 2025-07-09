@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
@@ -20,20 +21,35 @@ const Hero = () => {
         />
       </svg>
 
-      {/* Main Content */}
-      <h1 className="z-10 text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
+      {/* Animated Content */}
+      <motion.h1
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.1 }}
+        className="z-10 text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4"
+      >
         Harshananda Akkasali
-      </h1>
-      <p className="z-10 text-base sm:text-lg md:text-xl text-gray-300 mb-6">
+      </motion.h1>
+
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="z-10 text-base sm:text-lg md:text-xl text-gray-300 mb-6"
+      >
         Software Developer | Building with React, AI & Cloud
-      </p>
-      <a
+      </motion.p>
+
+      <motion.a
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.8 }}
         href="/resume.pdf"
         download
         className="z-10 bg-purple-600 px-6 py-2 rounded-full text-white hover:bg-purple-700 transition"
       >
         Download Resume
-      </a>
+      </motion.a>
     </section>
   );
 };
