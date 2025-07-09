@@ -1,41 +1,73 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
-import Experience from './components/Experience';
-import Highlights from './components/Highlights';
-import Contact from './components/Contact';
-import FadeInWhenVisible from './components/FadeInWhenVisible';
+import { useInView } from 'react-intersection-observer';
 
-function App() {
+const App = () => {
+  const [activeSection, setActiveSection] = useState('Home');
+
+  const options = {
+    triggerOnce: false,
+    threshold: 0.4,
+  };
+
+  const [homeRef, homeInView] = useInView(options);
+  const [skillsRef, skillsInView] = useInView(options);
+  const [projectsRef, projectsInView] = useInView(options);
+  const [experienceRef, experienceInView] = useInView(options);
+  const [highlightsRef, highlightsInView] = useInView(options);
+  const [contactRef, contactInView] = useInView(options);
+
+  React.useEffect(() => {
+    if (contactInView) setActiveSection('Contact');
+    else if (highlightsInView) setActiveSection('Highlights');
+    else if (experienceInView) setActiveSection('Experience');
+    else if (projectsInView) setActiveSection('Projects');
+    else if (skillsInView) setActiveSection('Skills');
+    else if (homeInView) setActiveSection('Home');
+  }, [
+    homeInView,
+    skillsInView,
+    projectsInView,
+    experienceInView,
+    highlightsInView,
+    contactInView,
+  ]);
+
   return (
-    <div className="bg-gray-900 text-white">
-      <Navbar />
-
-      <Hero />
-
-      <FadeInWhenVisible>
+    <>
+      <Navbar active={activeSection} />
+      <div ref={homeRef}>
+        <Hero />
+      </div>
+      <div ref={skillsRef}>
         <Skills />
-      </FadeInWhenVisible>
-
-      <FadeInWhenVisible delay={0.1}>
+      </div>
+      <div ref={projectsRef}>
         <Projects />
-      </FadeInWhenVisible>
-
-      <FadeInWhenVisible delay={0.2}>
-        <Experience />
-      </FadeInWhenVisible>
-
-      <FadeInWhenVisible delay={0.3}>
-        <Highlights />
-      </FadeInWhenVisible>
-
-      <FadeInWhenVisible delay={0.4}>
-        <Contact />
-      </FadeInWhenVisible>
-    </div>
+      </div>
+      <div ref={experienceRef} id="experience">
+        {/* Replace with your Experience component */}
+        <section className="min-h-screen bg-gray-900 text-white flex items-center justify-center">
+          <h2 className="text-4xl">Experience</h2>
+        </section>
+      </div>
+      <div ref={highlightsRef} id="highlights">
+        {/* Replace with your Highlights component */}
+        <section className="min-h-screen bg-gray-950 text-white flex items-center justify-center">
+          <h2 className="text-4xl">Highlights</h2>
+        </section>
+      </div>
+      <div ref={contactRef} id="contact">
+        {/* Replace with your Contact component */}
+        <section className="min-h-screen bg-gray-900 text-white flex items-center justify-center">
+          <h2 className="text-4xl">Contact</h2>
+        </section>
+      </div>
+    </>
   );
-}
+};
 
 export default App;
